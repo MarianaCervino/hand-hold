@@ -1,124 +1,14 @@
-/* Global Reset */
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    font-size: 16px; /* 1rem = 16px */
-    overflow-x: hidden;
-}
-
-/* Tipografias */
-body, h1, h2, h3, h4, h5, h6, button, a, .caption {
-    font-family: "DM Sans", sans-serif;
-}
-
-h1 {
-    font-size: 3.8125rem; /* 61px / 16 */
-    line-height: 5rem; /* 92px / 16 */
-    color: var(--neutral-white);
-}
-
-h2 {
-    font-size: 2.4375rem; /* 39px / 16 */
-    line-height: 3.6875rem; /* 59px / 16 */
-}
-
-h3 {
-    font-size: 1.9375rem; /* 31px / 16 */
-    line-height: 2.9375rem; /* 47px / 16 */
-}
-
-h4 {
-    font-size: 1.5625rem; /* 25px / 16 */
-    line-height: 2.375rem; /* 38px / 16 */
-}
-
-h5 {
-    font-size: 1.25rem; /* 20px / 16 */
-    line-height: 1.875rem; /* 30px / 16 */
-}
-
-h6 {
-    font-size: 1rem; /* 16px / 16 */
-    font-weight: 300;
-    line-height: 1.5rem; /* 24px / 16 */
-    color: var(--neutral-white);
-}
-
-button, a {
-    font-size: 1.2rem; /* 16px / 16 */
-    font-weight: 600;
-    line-height: 1.5rem; /* 24px / 16 */
-    color: var(--neutral-white);
-}
-
-.bodyText {
-    font-size: 0.875rem; /* 14px / 16 */
-    line-height: 1.5rem; /* 24px / 16 */
-}
-
-.caption {
-    font-size: 0.75rem; /* 12px / 16 */
-    line-height: 1.25rem; /* 20px / 16 */
-}
-
-/* Color */
-:root {
-    --primary-color: #9757D7;
-    --primary-linear: linear-gradient(90deg, #3772ff, #9757d7);
-    --accent-color: #FFB800;
-    --accent-linear: linear-gradient(135deg, #FFB800, #FB844F);
-    --profit-color: #7DD87D;
-    --loss-color: #FF6838;
-    --neutral-black: #141416;
-    --neutral-grey1: #23262F;
-    --neutral-grey2: #353945;
-    --neutral-grey3: rgb(172, 169, 169);
-    --neutral-white: #F4F5F6;
-}
-
-.primary {
-    color: var(--primary-color);
-}
-
-.primary-linear, .accent-linear {
-    background: var(--primary-linear);
-}
-
-.profit {
-    color: var(--profit-color);
-}
-
-.loss {
-    color: var(--loss-color);
-}
-
-.neutral-black {
-    color: var(--neutral-black);
-}
-
-.neutral-grey1 {
-    color: var(--neutral-grey1);
-}
-
-.neutral-grey2 {
-    color: var(--neutral-grey2);
-}
-
-.neutral-grey3 {
-    color: var(--neutral-grey3);
-}
-
-.neutral-white {
-    color: var(--neutral-white);
-}
+@import 'sass/variables';
+@import 'sass/reset';
+@import 'sass/typography';
+@import 'sass/navbar';
+@import 'sass/buttons';
+@import 'sass/mixins';
 
 /* Body and Background */
 body {
     width: 100vw;
-    background-color: var(--neutral-grey1);
+    background-color: $neutral-grey1;
 }
 
 .body-background {
@@ -133,64 +23,14 @@ body {
     z-index: -1;
 }
 
-/* Nav */
-.navbar {
-    padding: 1rem 1.5rem;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.navbar-nav {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
-.navbar-nav .nav-item .nav-link {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--neutral-white);
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.navbar-nav .nav-item .nav-link:hover {
-    color: var(--accent-color);
-    transform: scale(1.5);
-}
-
-.navButtons a .btn-outline-primary {
-    border-color: var(--neutral-white);
-    color: var(--neutral-white);
-}
-
-.navButtons a .btn-outline-primary:hover {
-    border-color: var(--accent-color);
-    color: var(--accent-color);
-}
-
-.navButtons a .btn-primary {
-    background-color: var(--accent-color);
-    color: var(--neutral-white);
-}
-
-.navButtons a .btn-primary:hover {
-    background-color: var(--neutral-white);
-    color: var(--accent-color);
-}
-
-.navbar-nav .nav-item {
-    margin-right: 2rem; /* Ajusta este valor según la separación que prefieras */
-}
-
 /* Botón de "Abrí tu cuenta" con fondo degradado */
 .btn-gradient {
-    background: var(--primary-linear);
+    background: $primary-linear;
     border: none;
-    color: var(--neutral-white);
-    padding: 0.5rem 1.5rem;
-    border-radius: 3rem;
-    transition: background 0.3s ease;
+    color: $neutral-white;
+    @include button-padding();
+    @include border-radius();
+    @include transition(background);
 }
 
 .btn-gradient:hover {
@@ -201,13 +41,17 @@ body {
 .btn-text {
     background: none;
     border: none;
-    color: var(--neutral-white);
-    padding: 0.5rem 1.5rem;
+    color: $neutral-white; /* Color inicial */
+    @include button-padding();
     font-size: 1rem;
     font-weight: 500;
     text-decoration: underline;
-    transition: color 0.3s ease;
-}
+    @include transition(color); /* Transición suave para el cambio de color */
+  
+    &:hover {
+      color: $primary-color; /* Cambia al color principal al hacer hover */
+    }
+  }
 
 .navbar-toggler {
     background-color: transparent; /* Cambia el fondo (predeterminado es gris) */
@@ -226,49 +70,48 @@ body {
     margin: 2rem 0 0 5rem;
 }
 
+.textHome h6{
+    color: $neutral-white;
+}
+
 /* Buttons */
 .buttonContainer {
     display: inline-block;
     padding: 0.5rem;
-    border: 2px solid var(--primary-color);
-    border-radius: 3rem;
+    border: 2px solid $primary-color;
+    @include border-radius(3rem);
     margin-top: 3rem;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.buttonContainer:hover{
-    transform: scale(1.06);
+    @include transition(all 0.3s ease-in-out);
+    @include box-shadow();
+    @include hover-scale(1.06);
 }
 
 .buttonFill {
-    background: var(--primary-linear);
+    background: $primary-linear;
     padding: 1rem;
-    border-radius: 2rem;
+    @include border-radius(2rem);
     border-style: none;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-}
+    @include transition(all 0.3s ease-in-out);
+    @include box-shadow();
 
-.buttonFill:hover {
-    background: linear-gradient(-90deg, #3772ff, #9757d7);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    &:hover {
+        background: linear-gradient(-90deg, #3772ff, #9757d7);
+        @include box-shadow(0px 8px 20px rgba(0, 0, 0, 0.2));
+    }
 }
 
 .buttonOutlined {
     font-weight: 500;
     font-size: 1.2rem;
     background-color: transparent;
-    border: 2px solid var(--primary-color);
-    border-radius: 4rem;
+    border: 2px solid $primary-color;
+    @include border-radius(4rem);
     padding: 1rem;
-    transition: all 0.3s ease; 
+    @include transition(all 0.3s ease);
     cursor: pointer;
-}
 
-.buttonOutlined:hover {
-    transform: scale(1.05); /* Aumenta el tamaño ligeramente */
+    @include hover-scale(1.05);
 }
 
 .buttonText {
@@ -297,28 +140,29 @@ body {
 }
 
 .coin {
+    opacity: 0.3;
     position: absolute;
     animation: float 3s ease-in-out infinite;
 }
 
 .coin1 {
     top: 5%;
-    width: 10rem;
+    width: 8rem;
     right: -15%;
     animation-delay: 1s, 2.3s;
 }
 
 .coin2 {
     top: 40%;
-    width: 9rem;
+    width: 6rem;
     right: 7%;
     animation-delay: 0.5s, 1s;
 }
 
 .coin3 {
-    bottom: 20%;
+    bottom: 21%;
     left: -13%;
-    width: 12rem;
+    width: 9rem;
     animation-delay: 0s, 0s;
 }
 
@@ -349,13 +193,13 @@ body {
     left: 0;
     right: 0;
     margin: auto;
-    bottom: -6rem;
+    bottom: -8rem;
     display: flex;
     justify-content: space-between;
     gap: 2rem;
     padding: 1.5rem 2rem;
     width: 60%;
-    background-color: var(--neutral-grey2);
+    background-color: $neutral-grey2;
     border-radius: 2rem;
 }
 
@@ -375,7 +219,7 @@ body {
 
 .coinTitle p {
     font-weight: 500;
-    color: var(--neutral-white);
+    color: $neutral-white;
 }
 
 .coinContainer {
@@ -386,25 +230,25 @@ body {
 }
 
 .coinContainer:hover {
-    background-color: var(--neutral-grey1);
+    background-color: $neutral-grey1;
     transform: scale(1.1);
 }
 
 .variationProfit p,
 .variationLoss p {
     font-weight: 500;
-    color: var(--neutral-white);
+    color: $neutral-white;
     padding: 0.1rem 0.5rem;
     border-radius: 1rem;
     margin-left: 0.5rem;
 }
 
 .variationProfit p {
-    background-color: var(--profit-color);
+    background-color: $profit-color;
 }
 
 .variationLoss p {
-    background-color: var(--loss-color);
+    background-color: $loss-color;
 }
 
 .priceProfit,
@@ -415,22 +259,22 @@ body {
 }
 
 .priceProfit {
-    color: var(--profit-color);
+    color: $profit-color;
 }
 
 .priceLoss {
-    color: var(--loss-color);
+    color: $loss-color;
 }
 
 .priceAdjust {
-    color: var(--neutral-grey3);
+    color: $neutral-grey3;
     font-size: 0.8rem;
 }
 
 /* CriptoTrader Home Section */
 .criptoTraderHome {
     margin-top: 43vh;
-    color: var(--neutral-white);
+    color: $neutral-white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -445,8 +289,8 @@ body {
 }
 
 .cardsHome{
-    background-color: var(--neutral-grey2);
-    color: var(--neutral-white);
+    background-color: $neutral-grey2;
+    color: $neutral-white;
     width: 20vw;
     padding: 5rem 1rem;
     border-radius: 8px;
@@ -465,11 +309,11 @@ body {
 }
 
 footer{
-    background-color: var(--neutral-black);
+    background-color: $neutral-black;
     margin-top: 6rem;
     display: flex;
     flex-direction: column;
-    color: var(--neutral-white);
+    color: $neutral-white;
 }
 
 .footer-container{
@@ -494,7 +338,7 @@ footer{
 }
 
 .footer-right h3{
-    color: var(--primary-color);
+    color: $primary-color;
     font-size: 1.5rem;
 }
 
@@ -509,15 +353,12 @@ footer ul li{
 
 footer ul li a {
     font-size: 1rem;
-    color: var(--neutral-white);
+    color: $neutral-white;
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-footer ul li a:hover {
-    color: var(--accent-color);
-    transform: scale(1.5);
-}
+    @include transition(color 0.3s ease, transform 0.3s ease);
+  
+    @include hover-effect($accent-color, scale(1.5));
+  }
 
 .footer-app{
     gap: 2rem;
@@ -527,7 +368,7 @@ footer ul li a:hover {
     display: flex;
     justify-content: center;
     justify-content: space-between;
-    border-top: solid 1px var(--neutral-grey2);
+    border-top: solid 1px $neutral-grey2;
     margin: 0 5rem 0 5rem;
     padding: 2rem 0 2rem 0;
 }
@@ -542,7 +383,7 @@ footer ul li a:hover {
     width: 2rem;
     height: 2rem;
     margin-left: 2rem;
-    border: solid 1px var(--primary-color);
+    border: solid 1px $primary-color;
     border-radius: 50rem;
 }
 
@@ -558,7 +399,7 @@ footer ul li a:hover {
     justify-content: center;
     font-size: 3.2rem; /* 61px / 16 */
     line-height: 5rem; /* 92px / 16 */
-    color: var(--neutral-white);
+    color: $neutral-white;
     align-items: center;
     margin: 4rem auto;
 }
@@ -579,10 +420,11 @@ footer ul li a:hover {
   }
   
   .card {
-    background-color: var(--neutral-grey1);
+    background-color: $neutral-grey1;
     padding: 20px;
+    border-color: transparent;
     border-radius: 12px;
-    color: #fff;
+    color: $neutral-white;
   }
   
   .central {
@@ -592,7 +434,7 @@ footer ul li a:hover {
     justify-content: flex-end;
     margin-bottom: 0;
     text-align: center;
-    background-color: #2a2c35; /* Color más oscuro */
+    background-color: #2a2c35;
     padding-bottom: 0;
   }
   
@@ -660,7 +502,7 @@ footer ul li a:hover {
     }
 
     .action-link {
-        color: var(--neutral-grey3); /* Color del texto del enlace */
+        color: $neutral-grey3; /* Color del texto del enlace */
         text-decoration: none; /* Eliminar subrayado */
         font-size: 1rem;
         font-weight: bold; /* Resaltar el texto */
@@ -669,13 +511,13 @@ footer ul li a:hover {
 
     .action-link:hover {
         text-decoration: underline; /* Subrayar al pasar el mouse */
-        color: var(--primary-color); /* Color de hover personalizado */
+        color: $primary-color; /* Color de hover personalizado */
     }
 
 /*UNIVERSITY*/
 .containerUniversity{
     margin-left: 5rem;
-    color: var(--neutral-white);
+    color: $neutral-white;
     margin-top: 2rem;
     display: flex;
 }
@@ -701,13 +543,13 @@ footer ul li a:hover {
 }
 
 .cardUniversity{
-    background-color: var(--neutral-grey2);
+    background-color: $neutral-grey2;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 2rem 1rem;
-    color: var(--neutral-white);
+    color: $neutral-white;
     align-items: center;
     text-align: center;
     gap: 1rem;
@@ -725,7 +567,7 @@ footer ul li a:hover {
 .containerUniversityBenefits{
     display: flex;
     align-items: center;
-    color: var(--neutral-white);
+    color: $neutral-white;
     margin-top: 10rem;
     margin-right: 12rem;
 }
@@ -814,7 +656,7 @@ footer ul li a:hover {
         justify-content: center;
         font-size: 1.7rem; 
         line-height: 3rem; 
-        color: var(--neutral-white);
+        color: $neutral-white;
         align-items: center;
         margin: 3rem 1rem;
     }
@@ -855,11 +697,11 @@ footer ul li a:hover {
     }
 
     footer {
-        background-color: var(--neutral-black);
+        background-color: $neutral-black;
         margin-top: 6rem;
         display: flex;
         flex-direction: column;
-        color: var(--neutral-white);
+        color: $neutral-white;
     }
     
     .footer-container {
@@ -885,7 +727,7 @@ footer ul li a:hover {
     }
     
     .footer-right h3 {
-        color: var(--primary-color);
+        color: $primary-color;
         font-size: 1.2rem; /* Ajusta el tamaño del texto */
         margin-top: 1rem;
     }
@@ -902,7 +744,7 @@ footer ul li a:hover {
     
     footer ul li a {
         font-size: 0.9rem; /* Ajusta el tamaño del texto */
-        color: var(--neutral-white);
+        color: $neutral-white;
         text-decoration: none;
         transition: color 0.3s ease, transform 0.3s ease;
     }
@@ -912,7 +754,7 @@ footer ul li a:hover {
         display: flex;
         flex-direction: column; /* Cambiado a columna para mobile */
         align-items: center; /* Centra los elementos */
-        border-top: solid 1px var(--neutral-grey2);
+        border-top: solid 1px $neutral-grey2;
         margin: 2rem 1rem; /* Reduce el margen */
         padding: 1rem 0; /* Menos padding para móviles */
         font-size: 1rem;
@@ -929,7 +771,7 @@ footer ul li a:hover {
         width: 2rem;
         height: 2rem;
         margin-left: 1rem; /* Reduce el margen entre iconos */
-        border: solid 1px var(--primary-color);
+        border: solid 1px $primary-color;
         border-radius: 50rem;
     }
     
