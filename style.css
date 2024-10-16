@@ -95,7 +95,6 @@ button, a {
     transform: none;
   }
 }
-/* From Uiverse.io by gharsh11032000 */
 .animated-button {
   margin-top: 3rem;
   position: relative;
@@ -185,36 +184,22 @@ button, a {
   opacity: 1;
 }
 
-/* Body and Background */
-body {
-  width: 100vw;
-  background-color: #23262F;
-}
-
-.body-background {
-  background-image: url(img/BackgroundLayers.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
-/* Botón de "Abrí tu cuenta" con fondo degradado */
-.btn-gradient {
-  background: linear-gradient(90deg, #3772ff, #9757d7);
-  border: none;
+/* Botón outlined */
+.button-filled {
+  cursor: pointer;
+  position: relative;
+  font-size: 1rem;
   color: #F4F5F6;
-  padding: 0.5rem 1.5rem;
-  border-radius: 3rem;
-  transition: background 0.3s ease;
+  border-radius: 34px;
+  background-color: #9757D7;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
 }
 
-.btn-gradient:hover {
-  background: linear-gradient(-90deg, #3772ff, #9757d7);
+.button-filled:hover {
+  scale: 1.1;
+  box-shadow: 0 0px 20px #9757D7;
+  color: #F4F5F6;
 }
 
 /* Botón de "Iniciar sesión" solo texto */
@@ -231,6 +216,24 @@ body {
 }
 .btn-text:hover {
   color: #9757D7; /* Cambia al color principal al hacer hover */
+}
+
+/* Body and Background */
+body {
+  width: 100vw;
+  background-color: #23262F;
+}
+
+.body-background {
+  background-image: url(img/BackgroundLayers.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
 .navbar-toggler {

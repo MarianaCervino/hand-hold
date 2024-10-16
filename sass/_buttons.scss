@@ -1,3 +1,5 @@
+@import '_mixins';
+
 @mixin button-style($bg-color, $neutral-white) {
     background-color: $bg-color;
     color: $neutral-white;
@@ -12,7 +14,6 @@
   }
 
   //Boton animado home//
-  /* From Uiverse.io by gharsh11032000 */ 
 .animated-button {
   margin-top: 3rem;
   position: relative;
@@ -102,6 +103,36 @@
   opacity: 1;
 }
 
+/* Botón outlined */
+.button-filled {
+  cursor: pointer;
+  position: relative;
+  font-size: 1rem;
+  color: $neutral-white;
+  border-radius: 34px;
+  background-color: $primary-color;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  overflow: hidden;
+}
 
-  
-  
+.button-filled:hover {
+  scale: 1.1;
+  box-shadow: 0 0px 20px $primary-color;
+  color: $neutral-white;
+}
+
+/* Botón de "Iniciar sesión" solo texto */
+.btn-text {
+  background: none;
+  border: none;
+  color: $neutral-white; /* Color inicial */
+  @include button-padding();
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: underline;
+  @include transition(color); /* Transición suave para el cambio de color */
+
+  &:hover {
+    color: $primary-color; /* Cambia al color principal al hacer hover */
+  }
+}

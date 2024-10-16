@@ -1,9 +1,9 @@
-@import 'sass/variables';
-@import 'sass/reset';
-@import 'sass/typography';
-@import 'sass/navbar';
-@import 'sass/buttons';
-@import 'sass/mixins';
+@import 'sass/_variables';
+@import 'sass/_reset';
+@import 'sass/_typography';
+@import 'sass/_navbar';
+@import 'sass/_buttons';
+@import 'sass/_mixins';
 
 /* Body and Background */
 body {
@@ -23,35 +23,6 @@ body {
     z-index: -1;
 }
 
-/* Botón de "Abrí tu cuenta" con fondo degradado */
-.btn-gradient {
-    background: $primary-linear;
-    border: none;
-    color: $neutral-white;
-    @include button-padding();
-    @include border-radius();
-    @include transition(background);
-}
-
-.btn-gradient:hover {
-    background: linear-gradient(-90deg, #3772ff, #9757d7);
-}
-
-/* Botón de "Iniciar sesión" solo texto */
-.btn-text {
-    background: none;
-    border: none;
-    color: $neutral-white; /* Color inicial */
-    @include button-padding();
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: underline;
-    @include transition(color); /* Transición suave para el cambio de color */
-  
-    &:hover {
-      color: $primary-color; /* Cambia al color principal al hacer hover */
-    }
-  }
 
 .navbar-toggler {
     background-color: transparent; /* Cambia el fondo (predeterminado es gris) */
