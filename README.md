@@ -19,7 +19,7 @@ El proyecto se compone de múltiples secciones, cada una diseñada para ofrecer 
 - **HTML5**
 - **CSS3**
 - **Bootstrap 5**
-- **Google Fonts**: Tipografías Fugaz One, Inter y DM Sans.
+- **Google Fonts**: Inter y DM Sans.
 - **Imágenes y Gráficos**: Íconos y gráficos representativos de criptomonedas y tendencias del mercado.
 
 ## Prototipo de Diseño
