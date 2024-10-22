@@ -778,6 +778,82 @@ footer ul li a:hover {
   display: inline;
 }
 
+/*SECURITY PAGE*/
+.containerSecurity {
+  display: flex;
+  color: #F4F5F6;
+  justify-content: space-between;
+}
+
+.containerSecurity-left {
+  width: 50vw;
+  margin-left: 5rem;
+}
+
+.cardsSecurity {
+  display: flex;
+  gap: 1rem;
+}
+
+.cardSecurity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid #9757D7;
+  margin: 2rem 0;
+  gap: 1rem;
+}
+
+.cardSecurity p {
+  text-align: center;
+  font-weight: 200;
+}
+
+.cardSecurity img {
+  width: 2.5rem;
+}
+
+.security-hand1 {
+  margin-top: 8rem;
+}
+
+.subtextSecurity {
+  background-color: #23262F;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.subtextSecurity p {
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.containerFaqs {
+  display: flex;
+  justify-content: space-between;
+}
+
+.containerFaqs-right {
+  color: #F4F5F6;
+  margin-right: 15rem;
+  width: 50%;
+}
+
+.accordion-item {
+  border-radius: 0.25rem; /* Opcional: redondeo de esquinas */
+}
+
+.accordion-button {
+  background-color: #353945; /* Cambia el color de fondo del botón si lo deseas */
+  color: #fff; /* Cambia el color del texto del botón si lo deseas */
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #9757D7; /* Color cuando el botón está colapsado */
+}
+
 /*MOBILE MEDIAS*/
 @media (max-width: 768px) {
   .body-background {
