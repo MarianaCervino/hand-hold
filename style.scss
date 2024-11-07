@@ -632,16 +632,16 @@ footer ul li a {
 }
 
 .accordion-item {
-    border-radius: 0.25rem; /* Opcional: redondeo de esquinas */
+    border-radius: 0.25rem; 
 }
 
 .accordion-button {
-    background-color: $neutral-grey2; /* Cambia el color de fondo del botón si lo deseas */
-    color: #fff; /* Cambia el color del texto del botón si lo deseas */
+    background-color: $neutral-grey2; 
+    color: #fff; 
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: $primary-color; /* Color cuando el botón está colapsado */
+    background-color: $primary-color; 
 }
 
 
@@ -732,6 +732,65 @@ footer ul li a {
     /*MERCADO MOBILE*/
     .containerMercado h1{
         font-size: 2rem;
+    }
+
+    /*UNIVERSITY MOBILE*/
+    .containerUniversity{
+        width: 100vw;
+        margin: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .titleUniversity{
+        width: 80%;
+        margin: auto;
+    }
+
+    .coursesUniversity{
+        flex-direction: column;
+        margin: auto 1rem;
+    }
+
+    .benefitsUniversity{
+        margin: auto 2rem;
+        height: auto;
+    }
+
+    @media (max-width: 768px) {
+        .mobile-hide {
+            display: none;
+        }
+    }
+
+    /*SECURITY MOBILE*/
+    .containerSecurity{
+        width: 100vw;
+        justify-content: center;
+    }
+
+    .containerSecurity-left{
+        width: 100%;
+        margin: auto 2rem;
+    }
+
+    .cardsSecurity{
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .cardSecurity{
+        margin: auto;
+        justify-content: center;
+    }
+
+    .containerFaqs{
+        margin: auto;
+        align-items: center;
+        width: auto;
     }
 
     /*FOOTER MOBILE*/
