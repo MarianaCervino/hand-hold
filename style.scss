@@ -632,16 +632,24 @@ footer ul li a {
 }
 
 .accordion-item {
-    border-radius: 0.25rem; 
+    
 }
 
 .accordion-button {
     background-color: $neutral-grey2; 
     color: #fff; 
+    
 }
 
 .accordion-button:not(.collapsed) {
     background-color: $primary-color; 
+    color: $neutral-white;
+
+}
+
+.accordion-body{
+    background: $neutral-grey1;
+    color: $neutral-white;
 }
 
 
@@ -889,5 +897,5 @@ footer ul li a {
     .navbar{
         padding: 1rem 1rem 1rem 0;
     }
-    
+
 }
